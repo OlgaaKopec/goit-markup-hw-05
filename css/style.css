@@ -109,8 +109,54 @@ body {
   margin-bottom: 106px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   padding: 0px;
+}
+
+.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+.overlay .modal-position::backdrop {
+  position: relative;
+  display: flex;
+}
+
+.overlay .container .modal-content {
+  /* transform: translateX(50%) translateY(50%) scale(0) rotate(6deg) skew(40deg, 40deg); */
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 528px;
+  height: 581px;
+  visibility: visible;
+  z-index: 3;
+  opacity: 1;
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay::backdrop {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container .modal-position .modal-content > div > button {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 .logo-main-style {
   text-decoration: none;
@@ -133,7 +179,7 @@ body {
   gap: 46px;
 }
 
-.nav-links a {
+.nav-links > li > a {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.02em;
@@ -141,8 +187,25 @@ body {
   text-decoration: none;
 }
 
-.active {
+.nav-links a:hover,
+.nav-links a:focus {
   color: var(--main-blue);
+}
+
+.nav-links > li > a.active {
+  color: var(--main-blue);
+}
+
+.nav-links > li > a.active::after {
+  color: var(--main-blue);
+  content: '';
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: var(--main-blue);
+  border-radius: 2px;
+  position: relative;
+  top: 31px;
 }
 
 .portfolio-big-net {
@@ -156,6 +219,41 @@ body {
   padding-top: 10px;
   padding-left: 25px;
   letter-spacing: 0.03em;
+}
+
+.overlay-technocrack > p {
+  color: var(--logo-white);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  width: 370px;
+  height: 294px;
+  padding: 49px 45px 49px 24px;
+  letter-spacing: 0.03em;
+  line-height: 28px;
+}
+
+.overlay-technocrack {
+  position: absolute;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(33, 150, 243, 0.9);
+  bottom: 0;
+  margin: 0;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+li:hover .overlay-technocrack {
+  transform: translateY(0);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.technocrak-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .buttons {
@@ -432,13 +530,6 @@ body {
   margin-bottom: 30px;
 }
 
-.nav-links a:hover,
-.nav-links a:focus,
-.nav-links a:active {
-  color: var(--main-blue);
-  outline: none;
-}
-
 .buttons button:hover,
 .buttons button:focus {
   background-color: var(--main-blue);
@@ -447,4 +538,33 @@ body {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+}
+
+/* .text-under-img:hover{
+transform: translatex(0);
+transition-property: transform;
+transition-duration: 2000ms;
+position:relative;
+} */
+
+.container .portfolio-big-net > figure > img:hover {
+  transform: translatex(0);
+  transition-property: visibility, transform, opacity;
+  transition-duration: 2000ms;
+  position: relative;
+  background: rgba(33, 150, 243, 0.9);
+}
+p.no-opacity {
+  color: var(--logo-white);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.images-what-we-do > li > div {
+  background: rgba(47, 48, 58, 0.8);
+  padding: 27px 0;
+  margin-top: -70px;
+  position: relative;
 }
