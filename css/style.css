@@ -120,9 +120,7 @@ body {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  transform: scale(0);
-  transition: opacity 500ms 500ms ease-in, visibility 500ms 500ms ease,
-    transform 500ms 500ms ease-out;
+  transition: opacity 500ms 500ms ease, visibility 500ms 500ms ease;
 }
 
 .modal {
@@ -137,14 +135,14 @@ body {
   transform: scale(1);
   transition-property: transform;
   transition-duration: 1000ms;
-  transition-timing-function: ease-in;
+  transition-timing-function: ease;
 }
 
 .backdrop.is-hidden .modal {
   transform: scale(0);
   transition-property: transform;
   transition-duration: 1000ms;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease;
   opacity: 1;
 }
 
@@ -199,13 +197,12 @@ body {
   letter-spacing: 0.02em;
   color: var(--almost-black);
   text-decoration: none;
+  line-height: 1;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
+.nav-links > li > a:hover,
+.nav-links > li > a:focus {
   color: var(--main-blue);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links > li > a.active {
@@ -213,7 +210,18 @@ body {
 }
 
 .nav-links > li > a.active::after {
-  color: var(--main-blue);
+  content: '';
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: var(--main-blue);
+  border-radius: 2px;
+  position: relative;
+  top: 31px;
+}
+
+.nav-links > li > a:hover::after,
+.nav-links > li > a:focus::after {
   content: '';
   height: 4px;
   display: block;
@@ -257,7 +265,6 @@ body {
   background-color: rgba(33, 150, 243, 0.9);
   bottom: 0;
   margin: 0;
-  opacity: 0.6;
   z-index: -1;
 }
 
@@ -467,7 +474,7 @@ li:hover .overlay-technocrack {
 
 .join-us-icons {
   display: flex;
-  gap: 170px;
+  gap: 70px;
 }
 
 .join-us {
