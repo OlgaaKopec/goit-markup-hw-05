@@ -219,7 +219,7 @@ body {
   background-color: var(--main-blue);
   border-radius: 2px;
   position: relative;
-  top: 31px;
+  top: 30px;
 }
 
 .nav-links > li > a:hover::after,
@@ -231,7 +231,7 @@ body {
   background-color: var(--main-blue);
   border-radius: 2px;
   position: relative;
-  top: 31px;
+  top: 30px;
 }
 
 .portfolio-big-net {
