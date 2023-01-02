@@ -203,6 +203,8 @@ body {
 .nav-links > li > a:hover,
 .nav-links > li > a:focus {
   color: var(--main-blue);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links > li > a.active {
@@ -461,12 +463,12 @@ li:hover .overlay-technocrack {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   padding: 12px;
+  display: flex;
 }
 
 .media-links-icons-footer li:hover,
 .media-links-icons-footer li:focus {
   background-color: var(--main-blue);
-  border-radius: 50%;
   outline: none;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -549,7 +551,7 @@ li:hover .overlay-technocrack {
   text-decoration: none;
 }
 
-.footer-underline li:nth-child(2) {
+.underline {
   text-decoration: underline;
   color: var(--contact-grey);
 }
